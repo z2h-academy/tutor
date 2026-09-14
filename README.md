@@ -172,7 +172,7 @@ Si el email asociado a la cuenta de GitHub está habilitado, el estudiante puede
 
 Antes de instalar Tutor se necesita:
 
-* **Node.js ≥ 20**, instalado mediante nvm o directamente.
+* **Node.js 22 o 24** (recomendado: 24 LTS), instalado mediante nvm.
 * **Una cuenta de GitHub** cuyo email esté incluido en la whitelist de Z2H Academy.
 * **Un agente de terminal con soporte MCP**.
 * **Git** (para clonar repos y trabajar con codespaces).
@@ -190,7 +190,54 @@ OpenCode es actualmente el cliente oficialmente soportado.
 
 ## Quick Start
 
-### 1. Instalar Tutor
+### 1. Instalar nvm + Node.js (Linux)
+
+Si aún no tienes Node.js, instálalo mediante nvm (Node Version Manager):
+
+```bash
+# Instalar nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+# Cargar nvm en la sesión actual (o reinicia la terminal)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Instalar y usar Node.js 24 LTS
+nvm install 24
+nvm use 24
+nvm alias default 24
+```
+
+Verificar la instalación:
+
+```bash
+node --version   # debe mostrar v24.x.x
+npm --version    # debe mostrar 10.x o 11.x
+```
+
+> **Versiones correctas:** Node.js **22 o 24** (24 LTS recomendado). npm viene incluido con Node.js (no se instala por separado). No uses Node.js 20 o inferior — Tutor requiere funciones modernas de JavaScript.
+
+---
+
+### 2. Instalar OpenCode
+
+Instalar el agente OpenCode con el instalador oficial:
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Verificar la instalación (reinicia la terminal primero si es necesario):
+
+```bash
+opencode --version
+```
+
+> Si el comando no se encuentra, agrega `~/.opencode/bin` a tu `PATH` o reinicia la terminal.
+
+---
+
+### 3. Instalar Tutor
 
 Instalar el paquete globalmente:
 
@@ -204,7 +251,7 @@ La configuración del MCP se realiza en el siguiente paso con `tutor login`
 
 ---
 
-### 2. Autenticarse
+### 4. Autenticarse
 
 La autenticación se realiza una única vez:
 
@@ -251,7 +298,7 @@ que detecte los cambios.
 
 ---
 
-### 3. Verificar la instalación
+### 5. Verificar la instalación
 
 Desde OpenCode se puede pedir al agente que consulte una sección:
 
