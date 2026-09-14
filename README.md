@@ -175,6 +175,8 @@ Antes de instalar Tutor se necesita:
 * **Node.js ≥ 20**, instalado mediante nvm o directamente.
 * **Una cuenta de GitHub** cuyo email esté incluido en la whitelist de Z2H Academy.
 * **Un agente de terminal con soporte MCP**.
+* **Git** (para clonar repos y trabajar con codespaces).
+* **GitHub CLI (`gh`)** (solo para labs en Codespaces — ver https://cli.github.com).
 
 Los agentes soportados incluyen:
 
@@ -196,9 +198,9 @@ Instalar el paquete globalmente:
 npm install -g @z2h-academy/tutor
 ```
 
-Durante la instalación, el `postinstall` registra automáticamente el MCP server `tutor-local` en OpenCode.
-
-No es necesario realizar una configuración manual del MCP.
+Esto instala los comandos `tutor`, `tutor-mcp`, `tutor-setup` y `tutor-runtime`.
+La configuración del MCP se realiza en el siguiente paso con `tutor login`
+(no es necesario realizar una configuración manual del MCP).
 
 ---
 
@@ -235,6 +237,17 @@ Las credenciales locales se almacenan en:
 ```
 
 con permisos `600`, de modo que únicamente el usuario pueda acceder al archivo.
+
+Al finalizar, `tutor login` configura automáticamente el MCP server en
+OpenCode. Si necesitas reconfigurarlo manualmente (por ejemplo, después de
+reinstalar OpenCode), ejecuta:
+
+```
+tutor setup
+```
+
+Esto registra el MCP y aplica el tema visual TUTOR. Reinicia OpenCode para
+que detecte los cambios.
 
 ---
 
@@ -277,6 +290,8 @@ Tutor instala una serie de **skills** que ayudan al agente a utilizar correctame
 | `tutor-study-path`      | Ayuda a seguir el orden secuencial de estudio recomendado.                                      |
 | `tutor-explain-section` | Ayuda al agente a explicar y resumir el contenido de una sección cargada.                       |
 | `tutor-run-local`       | Permite trabajar con los labs en local, en modo manual o automático, utilizando `/workspaces/`. |
+| `tutor-run-codespace`   | Ejecuta los labs dentro de un GitHub Codespace (valida `gh` CLI, gestiona fork + codespace).    |
+| `tutor-response-style`  | Guía de estilo: respuestas con markdown formateado, tablas y diagramas ASCII cuando aplique.    |
 | `tutor-debug`           | Ayuda a diagnosticar problemas relacionados con Tutor, MCP o el entorno del agente.             |
 
 Las skills **no contienen la lógica completa de la academia**.
@@ -348,6 +363,8 @@ La idea fundamental es mantener una separación clara:
 | `AccessDenied` al leer contenido        | La service account asociada al usuario puede haber sido revocada. Ejecutar `tutor login` nuevamente.                |
 | El MCP no aparece en OpenCode           | Verificar que Tutor esté instalado correctamente, comprobar la ruta del binario y reiniciar OpenCode.               |
 | `no email available`                    | GitHub no está proporcionando un email para la cuenta. Verificar la configuración de emails de la cuenta de GitHub. |
+| `gh: command not found`                 | Instalar GitHub CLI desde https://cli.github.com (necesario para labs en Codespaces).                               |
+| `You are not logged into any GitHub hosts` | Ejecutar `gh auth login` y completar el flujo de autenticación.                                                  |
 
 ---
 
