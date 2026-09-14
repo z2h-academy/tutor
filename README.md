@@ -239,15 +239,19 @@ opencode --version
 
 ### 3. Instalar Tutor
 
-Instalar el paquete globalmente:
+Instalar el paquete globalmente desde el último release:
 
 ```
-npm install -g @z2h-academy/tutor
+npm install -g https://github.com/z2h-academy/tutor/releases/latest/download/z2h-academy-tutor.tgz
 ```
 
 Esto instala los comandos `tutor`, `tutor-mcp`, `tutor-setup` y `tutor-runtime`.
 La configuración del MCP se realiza en el siguiente paso con `tutor login`
 (no es necesario realizar una configuración manual del MCP).
+
+> **Alternativa (registry npm):** `npm install -g @z2h-academy/tutor`.
+> Para una versión específica: reemplaza `latest` por el tag (ej. `.../download/v0.5.16/z2h-academy-tutor-0.5.16.tgz`).
+> Para actualizar a la última versión, repite el comando de instalación.
 
 ---
 
