@@ -1,172 +1,59 @@
-# Tutor — El harness de laboratorios de Z2H Academy
+<p align="center">
+  <img src="logo.svg" alt="TUTOR — Z2H Academy" width="520">
+</p>
 
-**Tutor** es el **harness de Z2H Academy** para ejecutar y acompañar los labs de nuestros Roadmaps desde el entorno local del estudiante.
+<p align="center">
+  <strong>Deja de ver cursos. Construye con AI.</strong>
+</p>
 
-Tutor conecta los agentes de terminal —como OpenCode, Codex o Claude Code— con la infraestructura de aprendizaje de Z2H Academy, proporcionando el contexto, las herramientas y las capacidades necesarias para trabajar con nuestros Roadmaps, Developer Docs y labs.
+<p align="center">
+  <img src="https://img.shields.io/badge/version-0.8.0-ffd300?style=flat-square" alt="versión 0.8.0">
+  <img src="https://img.shields.io/badge/license-Proprietary-0b0b10?style=flat-square" alt="licencia propietaria">
+  <img src="https://img.shields.io/badge/node-%3E%3D22-2fe08a?style=flat-square" alt="node 22 o superior">
+</p>
 
-Tutor **no es un chatbot ni el agente de IA**. El agente es quien conversa con el estudiante, razona y ejecuta acciones en su máquina.
+<p align="center">
+  <a href="#qué-es">qué es</a> ·
+  <a href="#el-flujo">flujo</a> ·
+  <a href="#para-quién-es">acceso</a> ·
+  <a href="#quick-start">quick start</a> ·
+  <a href="#troubleshooting">troubleshooting</a>
+</p>
 
-**Tutor es el harness que conecta al agente con Z2H Academy.**
-
-A través de MCP, Tutor permite al agente descubrir Roadmaps, consultar Developer Docs, seguir el flujo de estudio, ejecutar labs y utilizar las capacidades de validación disponibles en la plataforma.
-
-La arquitectura separa las responsabilidades:
-
-* **Agente:** conversa con el estudiante, razona y ejecuta acciones en su entorno.
-* **Tutor:** conecta al agente con Z2H Academy y le proporciona las herramientas y el contexto necesarios.
-* **Harness server-side:** dirige el flujo pedagógico, mantiene el estado y valida el progreso.
-* **Developer Docs:** contienen el conocimiento, las instrucciones y los criterios específicos de cada sección y lab.
-* **Entorno del estudiante:** es donde el agente ejecuta los labs y realiza el trabajo práctico.
-
-En términos simples:
-
-**El agente ejecuta.
-Tutor conecta y orquesta.
-El Harness dirige y valida.
-Los Developer Docs contienen el conocimiento.**
+**TUTOR** conecta tu agente de terminal —**OpenCode, Codex o Claude Code**— con los Roadmaps, Developer Docs y Labs de Z2H Academy. Tú construyes en tu entorno. El harness dirige y valida.
 
 ---
 
-## ¿Por qué un Harness?
+## Qué es
 
-Un agente de IA puede ejecutar comandos, modificar archivos y resolver problemas en una máquina, pero no conoce por sí mismo la estructura pedagógica de Z2H Academy.
+Tutor no es un chatbot. Es el harness que conecta al agente con Z2H Academy.
 
-Tampoco debería ser responsable de decidir qué Roadmap corresponde, qué sección sigue, cuál es el estado de un lab o si un paso fue completado correctamente.
+Un agente de IA sabe ejecutar comandos y resolver problemas, pero no conoce la estructura pedagógica de la academia. **Tutor es la pieza que conecta ambas cosas vía MCP.**
 
-Esa responsabilidad pertenece al **Harness**.
+> El agente ejecuta.
+> Tutor conecta y orquesta.
+> El Harness dirige y valida.
+> Los Developer Docs contienen el conocimiento.
 
-Tutor permite separar la inteligencia del agente de la lógica de aprendizaje de la plataforma:
+El agente puede cambiar —OpenCode, Codex o Claude Code— sin que la lógica de aprendizaje dependa de un modelo específico.
 
-* El **agente** se ocupa de conversar con el estudiante, razonar y trabajar en su entorno.
-* El **Harness** conecta ese trabajo con la experiencia de aprendizaje de Z2H Academy.
-* La **plataforma** mantiene la lógica pedagógica, el estado y la validación.
+## El flujo
 
-De esta manera, el agente puede ser reemplazado —OpenCode, Codex, Claude Code u otros clientes compatibles— sin que la lógica de aprendizaje tenga que depender de un modelo específico.
+`Roadmap → Agente → Tutor → Lab → Validación`
 
----
-
-## Tutor + Harness server-side
-
-Tutor forma parte de una arquitectura distribuida entre el entorno del estudiante y la infraestructura de Z2H Academy.
-
-### Tutor: el Harness local
-
-Tutor corre en el entorno del estudiante y expone las capacidades de Z2H Academy al agente mediante MCP.
-
-Entre otras cosas, se encarga de:
-
-* registrar y configurar el MCP server;
-* gestionar la autenticación local;
-* proporcionar las herramientas que utiliza el agente;
-* obtener información de los Developer Docs;
-* interactuar con los servicios de Z2H Academy;
-* preparar y ejecutar los labs en el entorno local;
-* conectar las acciones locales con el Harness server-side.
-
-Tutor no necesita contener toda la lógica de la academia. Su función es proporcionar al agente una interfaz para acceder a ella.
-
-### Harness server-side: dirección y validación
-
-El Harness server-side vive en la infraestructura de Z2H Academy.
-
-Es responsable de la lógica que no debería depender del modelo de IA ni de la máquina del estudiante.
-
-El servidor:
-
-* conoce los Roadmaps disponibles;
-* conoce sus niveles y secciones;
-* conoce los labs asociados;
-* mantiene el estado de los labs;
-* define el flujo pedagógico;
-* controla qué pasos corresponden en cada momento;
-* valida los pasos realizados;
-* mantiene la lógica de progreso;
-* proporciona una fuente de verdad independiente del agente.
-
-Esto es especialmente importante para la validación.
-
-**El agente no decide por sí mismo si un paso fue completado correctamente.**
-
-Cuando una acción requiere validación, esta se realiza utilizando la lógica definida por Z2H Academy en el Harness server-side.
-
----
-
-## Developer Docs
-
-Los **Developer Docs** son la fuente de conocimiento técnico de cada sección del Roadmap.
-
-Contienen la información necesaria para entender y ejecutar los labs:
-
-* contexto;
-* conceptos;
-* instrucciones;
-* pasos;
-* comandos;
-* configuración;
-* criterios;
-* información específica del entorno;
-* instrucciones para resolver problemas.
-
-Tutor permite que el agente consulte esta información cuando la necesita.
-
-Esto establece una separación clara entre **conocimiento, orquestación, ejecución y validación**:
-
-* **Developer Docs:** contienen el conocimiento y las instrucciones.
-* **Tutor:** expone ese conocimiento y las capacidades de la plataforma al agente.
-* **Harness server-side:** dirige el flujo y valida el progreso.
-* **Agente:** utiliza la información, conversa con el estudiante y ejecuta acciones.
-* **Entorno del estudiante:** contiene el trabajo práctico y los labs.
-
----
-
-## La experiencia AI-First
-
-El objetivo de Tutor no es simplemente agregar un MCP server.
-
-La intención es cambiar la forma en que el estudiante interactúa con Z2H Academy.
-
-Tradicionalmente, el flujo podía ser:
-
-**Roadmap → Developer Docs → Terminal → Lab → Documentación → Terminal**
-
-Con Tutor, el flujo se convierte en:
-
-**Roadmap → Agente → Tutor → Lab → Validación**
-
-La experiencia ocurre desde la terminal del estudiante, mientras Tutor conecta al agente con la infraestructura de aprendizaje.
-
-El flujo puede ser:
-
-1. El estudiante selecciona un Roadmap.
-2. El agente descubre el contenido disponible mediante Tutor.
-3. Consulta el Developer Doc correspondiente.
-4. Explica qué debe realizarse.
-5. Ejecuta las acciones necesarias en el entorno.
-6. Si algo falla, analiza el problema y ayuda a corregirlo.
-7. Tutor comunica las acciones relevantes con la plataforma.
-8. El Harness server-side valida el progreso cuando corresponde.
-9. El agente continúa con el siguiente paso.
-
-El resultado es una experiencia en la que **el agente se convierte en la interfaz de aprendizaje**, mientras que la estructura pedagógica y la validación continúan bajo el control de Z2H Academy.
-
----
+| Paso | Qué pasa |
+|---|---|
+| **1. Descubre** | El agente lista los roadmaps, niveles y secciones disponibles para tu cuenta. |
+| **2. Consulta** | Lee el Developer Doc de la sección y te explica qué debe realizarse. |
+| **3. Ejecuta** | Corre las acciones del lab en tu entorno; si algo falla, te ayuda a corregirlo. |
+| **4. Valida** | El harness verifica el progreso. No es el agente quien decide si está bien. |
+| **5. Avanza** | Con la sección validada, el agente continúa con el siguiente paso. |
 
 ## ¿Para quién es?
 
-Tutor está disponible para **estudiantes activos de Z2H Academy** que quieran ejecutar los labs de los Roadmaps de forma guiada mediante un agente de terminal.
+TUTOR es para **estudiantes activos de Z2H Academy**.
 
-Puede utilizarse en:
-
-* una PC;
-* un Codespace;
-* un container;
-* cualquier entorno compatible con los requisitos de Tutor.
-
-El acceso está controlado mediante la whitelist de Z2H Academy.
-
-Si el email asociado a la cuenta de GitHub está habilitado, el estudiante puede autenticarse y comenzar a utilizar Tutor.
-
----
+El acceso está controlado por whitelist: si el email de tu cuenta de GitHub está habilitado, puedes autenticarte y empezar. Si no, contacta al administrador.
 
 ## Requisitos
 
@@ -190,7 +77,8 @@ OpenCode es actualmente el cliente oficialmente soportado.
 
 ## Quick Start
 
-### 1. Instalar nvm + Node.js (Linux)
+<details>
+<summary><strong>1. Instalar nvm + Node.js (Linux)</strong></summary>
 
 Si aún no tienes Node.js, instálalo mediante nvm (Node Version Manager):
 
@@ -217,9 +105,10 @@ npm --version    # debe mostrar 10.x o 11.x
 
 > **Versiones correctas:** Node.js **22 o 24** (24 LTS recomendado). npm viene incluido con Node.js (no se instala por separado). No uses Node.js 20 o inferior — Tutor requiere funciones modernas de JavaScript.
 
----
+</details>
 
-### 2. Instalar OpenCode
+<details>
+<summary><strong>2. Instalar OpenCode</strong></summary>
 
 Instalar el agente OpenCode con el instalador oficial:
 
@@ -235,9 +124,10 @@ opencode --version
 
 > Si el comando no se encuentra, agrega `~/.opencode/bin` a tu `PATH` o reinicia la terminal.
 
----
+</details>
 
-### 3. Instalar Tutor
+<details>
+<summary><strong>3. Instalar Tutor</strong></summary>
 
 Instalar el paquete globalmente desde el último release:
 
@@ -249,13 +139,13 @@ Esto instala los comandos `tutor`, `tutor-mcp`, `tutor-setup` y `tutor-runtime`.
 La configuración del MCP se realiza en el siguiente paso con `tutor login`
 (no es necesario realizar una configuración manual del MCP).
 
-> **Alternativa (registry npm):** `npm install -g @z2h-academy/tutor`.
-> Para una versión específica: reemplaza `latest` por el tag (ej. `.../download/v0.5.16/z2h-academy-tutor-0.5.16.tgz`).
+> Para una versión específica: reemplaza `latest` por el tag (ej. `.../download/v0.8.0/z2h-academy-tutor-0.8.0.tgz`).
 > Para actualizar a la última versión, repite el comando de instalación.
 
----
+</details>
 
-### 4. Autenticarse
+<details>
+<summary><strong>4. Autenticarse</strong></summary>
 
 La autenticación se realiza una única vez:
 
@@ -300,9 +190,10 @@ tutor setup
 Esto registra el MCP y aplica el tema visual TUTOR. Reinicia OpenCode para
 que detecte los cambios.
 
----
+</details>
 
-### 5. Verificar la instalación
+<details>
+<summary><strong>5. Verificar la instalación</strong></summary>
 
 Desde OpenCode se puede pedir al agente que consulte una sección:
 
@@ -322,127 +213,27 @@ También se puede verificar que el MCP esté conectado:
 opencode mcp list
 ```
 
-Debería aparecer algo similar a:
-
-```
-● ✓ tutor-local connected
-```
-
----
-
-## Skills incluidos
-
-Tutor instala una serie de **skills** que ayudan al agente a utilizar correctamente sus capacidades:
-
-| Skill                   | Función                                                                                         |
-| ----------------------- | ----------------------------------------------------------------------------------------------- |
-| `tutor-discover`        | Descubre y lista los Roadmaps y niveles disponibles.                                            |
-| `tutor-read-section`    | Consulta el Developer Doc de una sección mediante `tutor_get_section`.                          |
-| `tutor-study-path`      | Ayuda a seguir el orden secuencial de estudio recomendado.                                      |
-| `tutor-explain-section` | Ayuda al agente a explicar y resumir el contenido de una sección cargada.                       |
-| `tutor-run-local`       | Permite trabajar con los labs en local, en modo manual o automático, utilizando `/workspaces/`. |
-| `tutor-run-codespace`   | Ejecuta los labs dentro de un GitHub Codespace (valida `gh` CLI, gestiona fork + codespace).    |
-| `tutor-response-style`  | Guía de estilo: respuestas con markdown formateado, tablas y diagramas ASCII cuando aplique.    |
-| `tutor-debug`           | Ayuda a diagnosticar problemas relacionados con Tutor, MCP o el entorno del agente.             |
-
-Las skills **no contienen la lógica completa de la academia**.
-
-Su función es ayudar al agente a utilizar correctamente las capacidades de Tutor.
-
-El conocimiento específico de cada Roadmap permanece en los Developer Docs, mientras que la lógica pedagógica, el estado y la validación permanecen en la infraestructura de Z2H Academy.
-
----
-
-## Arquitectura
-
-La arquitectura completa puede resumirse así:
-
-```
-Z2H Academy
-
-     │
-     ├───────────────────────┐
-     │                       │
-Developer Docs         Harness Server
-     │                       │
-     │                dirige · mantiene
-     │                 estado · valida
-     │                       │
-     └───────────┬───────────┘
-                 │
-            Tutor Harness
-                 │
-                MCP
-                 │
-      ┌──────────▼──────────┐
-      │       Agente        │
-      │ OpenCode / Codex /  │
-      │    Claude Code      │
-      └──────────┬──────────┘
-                 │
-            ejecuta en
-                 │
-      ┌──────────▼──────────┐
-      │    Entorno local    │
-      │   PC / Codespace /  │
-      │      Container      │
-      └──────────┬──────────┘
-                 │
-            ┌────▼────┐
-            │   Labs  │
-            └─────────┘
-```
-
-La idea fundamental es mantener una separación clara:
-
-**El agente razona y ejecuta.**
-
-**Tutor conecta y orquesta.**
-
-**El Harness server-side dirige y valida.**
-
-**Los Developer Docs contienen el conocimiento.**
+</details>
 
 ---
 
 ## Troubleshooting
 
-| Problema                                | Solución                                                                                                            |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Problema | Solución |
+|---|---|
 | `cuenta no habilitada` | El email no está habilitado. Contactar al administrador de Z2H Academy. |
-| `grant user:email scope`                | Verificar que se haya autorizado el scope `user:email` durante el GitHub Device Flow.                               |
-| `AccessDenied` al leer contenido        | La service account asociada al usuario puede haber sido revocada. Ejecutar `tutor login` nuevamente.                |
-| El MCP no aparece en OpenCode           | Verificar que Tutor esté instalado correctamente, comprobar la ruta del binario y reiniciar OpenCode.               |
-| `no email available`                    | GitHub no está proporcionando un email para la cuenta. Verificar la configuración de emails de la cuenta de GitHub. |
-| `gh: command not found`                 | Instalar GitHub CLI desde https://cli.github.com (necesario para labs en Codespaces).                               |
-| `You are not logged into any GitHub hosts` | Ejecutar `gh auth login` y completar el flujo de autenticación.                                                  |
-
----
-
-## Acceso
-
-Tutor es una funcionalidad de acceso restringido para **estudiantes activos de Z2H Academy**.
-
-Si el email no está incluido en la whitelist, la autenticación será rechazada.
-
-En ese caso, contactar al administrador de Z2H Academy para solicitar acceso.
+| `grant user:email scope` | Verificar que se haya autorizado el scope `user:email` durante el GitHub Device Flow. |
+| `AccessDenied` al leer contenido | La service account asociada al usuario puede haber sido revocada. Ejecutar `tutor login` nuevamente. |
+| El MCP no aparece en OpenCode | Verificar que Tutor esté instalado correctamente, comprobar la ruta del binario y reiniciar OpenCode. |
+| `no email available` | GitHub no está proporcionando un email para la cuenta. Verificar la configuración de emails de la cuenta de GitHub. |
+| `gh: command not found` | Instalar GitHub CLI desde https://cli.github.com (necesario para labs en Codespaces). |
+| `You are not logged into any GitHub hosts` | Ejecutar `gh auth login` y completar el flujo de autenticación. |
 
 ---
 
 ## Soporte
 
-Para problemas relacionados con:
-
-* acceso;
-* whitelist;
-* autenticación;
-* configuración de Tutor;
-* conexión MCP;
-* Roadmaps;
-* labs;
-* funcionamiento del Harness;
-
-contactar al administrador de Z2H Academy.
+Para problemas relacionados con acceso, autenticación, configuración de Tutor, conexión MCP, Roadmaps o labs, contactar al administrador de Z2H Academy.
 
 ---
 
@@ -454,24 +245,6 @@ Consultar el archivo `LICENSE` incluido en el proyecto para conocer los término
 
 ---
 
-## Z2H Academy AI-First
-
-Tutor es una pieza fundamental de la experiencia **AI-First de Z2H Academy**.
-
-Los **Developer Docs** contienen el conocimiento.
-
-El **Harness server-side** mantiene la lógica pedagógica, el estado y la validación.
-
-**Tutor** conecta esa infraestructura con el agente.
-
-El **agente** conversa con el estudiante, razona y ejecuta el trabajo en su entorno.
-
-Y el estudiante aprende haciendo.
-
-**El agente ejecuta.**
-
-**Tutor conecta y orquesta.**
-
-**El Harness dirige y valida.**
-
-**Y el estudiante aprende haciendo.**
+<p align="center">
+  <sub>El agente ejecuta · Tutor conecta y orquesta · el Harness dirige y valida</sub>
+</p>
