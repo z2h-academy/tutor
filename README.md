@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.8.0-ffd300?style=flat-square" alt="versión 0.8.0">
+  <img src="https://img.shields.io/badge/version-0.9.0-ffd300?style=flat-square" alt="versión 0.9.0">
   <img src="https://img.shields.io/badge/license-Proprietary-0b0b10?style=flat-square" alt="licencia propietaria">
   <img src="https://img.shields.io/badge/node-%3E%3D22-2fe08a?style=flat-square" alt="node 22 o superior">
 </p>
