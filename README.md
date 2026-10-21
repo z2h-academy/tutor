@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.9.0-ffd300?style=flat-square" alt="versión 0.9.0">
+  <img src="https://img.shields.io/badge/version-0.10.0-ffd300?style=flat-square" alt="versión 0.10.0">
   <img src="https://img.shields.io/badge/license-Proprietary-0b0b10?style=flat-square" alt="licencia propietaria">
   <img src="https://img.shields.io/badge/node-%3E%3D22-2fe08a?style=flat-square" alt="node 22 o superior">
   <a href="https://discord.gg/ycy9zkUreX"><img src="https://img.shields.io/badge/discord-%C3%BAnete-5865F2?style=flat-square&amp;logo=discord&amp;logoColor=white" alt="únete al Discord de Z2H Academy"></a>
@@ -56,15 +56,16 @@ El modelo tradicional optimiza el consumo: videos, ejercicios guiados, certifica
 
 ## El flujo
 
-`Roadmap → Agente → Tutor → Lab → Validación`
+`Roadmap → Teoría → Plan → Modo → Lab → Evidencia`
 
 | Paso | Qué pasa |
 |---|---|
 | **1. Descubre** | El agente lista los roadmaps, niveles y secciones disponibles para tu cuenta. |
-| **2. Consulta** | Lee el Developer Doc de la sección y te explica qué debe realizarse. |
-| **3. Ejecuta** | Corre las acciones del lab en tu entorno; si algo falla, te ayuda a corregirlo. |
-| **4. Valida** | El harness verifica el progreso. No es el agente quien decide si está bien. |
-| **5. Avanza** | Con la sección validada, el agente continúa con el siguiente paso. |
+| **2. Entiende** | Te presenta la base teórica del nivel y un checkpoint para confirmar que la entendiste. |
+| **3. Planifica** | Arma el plan del nivel: cada paso con su por qué, el comando, la salida esperada y la evidencia de cierre. |
+| **4. Elige modo** | Te pregunta si prefieres el modo automático (el agente ejecuta) o manual (ejecutas tú). |
+| **5. Ejecuta** | Corre el lab en tu entorno; si algo falla, te ayuda a corregirlo. |
+| **6. Valida** | La academia valida cada paso con evidencia. No es el agente quien decide si está bien. |
 
 ## ¿Para quién es?
 
@@ -89,7 +90,7 @@ Los agentes soportados incluyen:
 * **Codex**
 * **Claude Code**
 
-OpenCode es el cliente oficialmente soportado. **Tutor 0.9.0 requiere OpenCode 2**: si todavía usas OpenCode 1, quédate en Tutor 0.8.0.
+OpenCode es el cliente oficialmente soportado. **Tutor 0.10.0 requiere OpenCode 2**: si todavía usas OpenCode 1, quédate en Tutor 0.8.0.
 
 ---
 
@@ -142,7 +143,7 @@ opencode --version   # debe mostrar 2.x
 
 > Si el comando no se encuentra, agrega `~/.opencode/bin` a tu `PATH` o reinicia la terminal.
 
-> **Requisito de versión:** Tutor 0.9.0 requiere OpenCode 2. Si todavía usas OpenCode 1, quédate en Tutor 0.8.0.
+> **Requisito de versión:** Tutor 0.10.0 requiere OpenCode 2. Si todavía usas OpenCode 1, quédate en Tutor 0.8.0.
 
 </details>
 
@@ -157,7 +158,7 @@ npm install -g https://github.com/z2h-academy/tutor/releases/latest/download/z2h
 
 No necesitas configurar nada a mano: el siguiente paso deja todo listo.
 
-> Para una versión específica: reemplaza `latest` por el tag (ej. `.../download/v0.9.0/z2h-academy-tutor-0.9.0.tgz`).
+> Para una versión específica: reemplaza `latest` por el tag (ej. `.../download/v0.10.0/z2h-academy-tutor-0.10.0.tgz`).
 > Para actualizar una instalación existente, consulta el paso 6.
 
 </details>
@@ -284,8 +285,8 @@ Pídeselo así:
 Tutor le enseña a tu agente cómo trabajar con la academia:
 
 * **Descubrir tu contenido** — roadmaps, niveles y secciones disponibles para tu cuenta.
-* **Guiarte en el orden correcto** — sabe qué sección sigue según tu roadmap.
-* **Explicarte cada sección** — resume y aclara el contenido antes de ejecutar, con tablas, diagramas y ejemplos cuando hacen falta.
+* **Guiarte en el orden correcto** — sabe qué paso sigue según tu roadmap.
+* **Explicarte cada tema** — resume y aclara el contenido antes de ejecutar, con tablas, diagramas y ejemplos cuando hacen falta.
 * **Ejecutar tus labs** — en local o en un Codespace, en modo manual o automático.
 * **Validar cada paso** — contra los criterios de la academia, no contra la opinión del modelo.
 * **Diagnosticar cuando algo falla** — te ayuda a encontrar la causa en lugar de adivinar.
@@ -311,7 +312,7 @@ Tutor le enseña a tu agente cómo trabajar con la academia:
 | `no email available` | GitHub no está proporcionando un email para tu cuenta. Revisa la configuración de emails de tu cuenta de GitHub. |
 | `gh: command not found` | Instala GitHub CLI desde https://cli.github.com (necesario para labs en Codespaces). |
 | `You are not logged into any GitHub hosts` | Ejecuta `gh auth login` y completa el flujo de autenticación. |
-| Usas OpenCode 1 | Tutor 0.9.0 requiere OpenCode 2. Actualiza OpenCode o quédate en Tutor 0.8.0. |
+| Usas OpenCode 1 | Tutor 0.10.0 requiere OpenCode 2. Actualiza OpenCode o quédate en Tutor 0.8.0. |
 
 ---
 
