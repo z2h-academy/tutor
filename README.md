@@ -1,355 +1,439 @@
+**English** | [Español](README.es.md)
+
 <p align="center">
   <img src="logo.svg" alt="TUTOR — Z2H Academy" width="520">
 </p>
 
 <p align="center">
-  <strong>Deja de ver cursos. Construye con AI.</strong>
+  <strong>Stop watching courses. Build with AI.</strong>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.10.0-ffd300?style=flat-square" alt="versión 0.10.0">
-  <img src="https://img.shields.io/badge/license-Proprietary-0b0b10?style=flat-square" alt="licencia propietaria">
-  <img src="https://img.shields.io/badge/node-%3E%3D22-2fe08a?style=flat-square" alt="node 22 o superior">
-  <a href="https://discord.gg/ycy9zkUreX"><img src="https://img.shields.io/badge/discord-%C3%BAnete-5865F2?style=flat-square&amp;logo=discord&amp;logoColor=white" alt="únete al Discord de Z2H Academy"></a>
+  <img src="https://img.shields.io/badge/stable-0.10.0-ffd300?style=flat-square" alt="stable 0.10.0">
+  <img src="https://img.shields.io/badge/pre--release-0.10.2--rc.2-2f81f7?style=flat-square" alt="pre-release 0.10.2-rc.2">
+  <img src="https://img.shields.io/badge/license-Proprietary-0b0b10?style=flat-square" alt="proprietary license">
+  <img src="https://img.shields.io/badge/node-%3E%3D22-2fe08a?style=flat-square" alt="node 22 or higher">
+  <a href="https://discord.gg/ycy9zkUreX"><img src="https://img.shields.io/badge/discord-join-5865F2?style=flat-square&amp;logo=discord&amp;logoColor=white" alt="join the Z2H Academy Discord"></a>
 </p>
 
 <p align="center">
-  <a href="#qué-es">qué es</a> ·
-  <a href="#por-qué-tutor">por qué</a> ·
-  <a href="#el-flujo">flujo</a> ·
-  <a href="#para-quién-es">acceso</a> ·
+  <a href="#what-it-is">what it is</a> ·
+  <a href="#why-tutor">why</a> ·
+  <a href="#the-flow">flow</a> ·
+  <a href="#content-roadmaps-and-projects">content</a> ·
   <a href="#quick-start">quick start</a> ·
-  <a href="#troubleshooting">troubleshooting</a> ·
-  <a href="#comunidad">comunidad</a>
+  <a href="#what-your-agent-can-do">capabilities</a> ·
+  <a href="#execution-modes">modes</a> ·
+  <a href="#troubleshooting">troubleshooting</a>
 </p>
 
-**TUTOR** conecta tu agente de terminal —**OpenCode, Codex o Claude Code**— con los Roadmaps, Developer Docs y Labs de Z2H Academy. Tú construyes en tu entorno. El harness dirige y valida.
+**TUTOR** connects your terminal agent —**OpenCode, Codex or Claude Code**— to the Roadmaps, Developer Docs and Labs of Z2H Academy. You build in your own environment. The harness directs and validates.
 
 ---
 
-## Qué es
+## What it is
 
-Tutor no es un chatbot. Es el harness que conecta al agente con Z2H Academy.
+Tutor is not a chatbot. It is the harness that connects the agent to Z2H Academy.
 
-Un agente de IA sabe ejecutar comandos y resolver problemas, pero no conoce la estructura pedagógica de la academia. **Tutor es la pieza que conecta ambas cosas.**
+An AI agent knows how to run commands and solve problems, but it does not know the teaching structure of the academy. **Tutor is the piece that connects both.**
 
-> El agente ejecuta.
-> Tutor conecta y orquesta.
-> El harness dirige y valida.
-> Los Developer Docs contienen el conocimiento.
+> The agent executes.
+> Tutor connects and orchestrates.
+> The harness directs and validates.
+> The Developer Docs hold the knowledge.
 
-El agente puede cambiar —OpenCode, Codex o Claude Code— sin que la lógica de aprendizaje dependa de un modelo específico.
+The agent can change —OpenCode, Codex or Claude Code— without the learning logic depending on a specific model.
 
-Los Roadmaps de la academia cubren data engineering, AI, DevOps, Python, PySpark y SQL, organizados en niveles y secciones que viven como documentación técnica real.
+Tutor is not a chatbot either, and it is not the AI agent itself. **The agent is what talks to you, reasons and acts on your machine.**
 
-## Por qué Tutor
+A second thing Tutor is not: a place where the model grades you. **The academy validates each step.** The agent does not decide whether you did it right.
 
-El modelo tradicional optimiza el consumo: videos, ejercicios guiados, certificados. Tutor entrena el criterio técnico que se necesita para construir sistemas reales.
+## Why Tutor
 
-| El modelo tradicional | Con Tutor |
+The traditional model optimizes consumption: videos, guided exercises, certificates. Tutor trains the technical judgment you need to build real systems.
+
+| The traditional model | With Tutor |
 |---|---|
-| Videos grabados, idénticos para todos. | Developer Docs vivos, como documentación técnica real. |
-| Labs que se copian sin entender. | Labs que ejecutas en tu propio entorno, con tu agente. |
-| Nadie verifica si de verdad lo hiciste. | La academia valida cada paso: el agente no decide si está bien. |
-| El progreso se pierde entre sesiones. | Tu agente recuerda dónde quedaste. |
-| Terminas con un certificado. | Terminas con algo que puedes mostrar. |
+| Recorded videos, identical for everyone. | Living Developer Docs, like real technical documentation. |
+| Labs you copy without understanding. | Labs you run in your own environment, with your agent. |
+| Nobody checks whether you actually did it. | The academy validates every step: the agent does not decide if it is right. |
+| Progress is lost between sessions. | Your agent remembers where you left off. |
+| You finish with a certificate. | You finish with something you can show. |
 
-## El flujo
+## The flow
 
-`Roadmap → Teoría → Plan → Modo → Lab → Evidencia`
+`Roadmap → Theory → Plan → Mode → Lab → Evidence`
 
-| Paso | Qué pasa |
+| Step | What happens |
 |---|---|
-| **1. Descubre** | El agente lista los roadmaps, niveles y secciones disponibles para tu cuenta. |
-| **2. Entiende** | Te presenta la base teórica del nivel y un checkpoint para confirmar que la entendiste. |
-| **3. Planifica** | Arma el plan del nivel: cada paso con su por qué, el comando, la salida esperada y la evidencia de cierre. |
-| **4. Elige modo** | Te pregunta si prefieres el modo automático (el agente ejecuta) o manual (ejecutas tú). |
-| **5. Ejecuta** | Corre el lab en tu entorno; si algo falla, te ayuda a corregirlo. |
-| **6. Valida** | La academia valida cada paso con evidencia. No es el agente quien decide si está bien. |
+| **1. Discover** | The agent lists the roadmaps, levels and sections available for your account. |
+| **2. Understand** | It presents the theoretical base of the level and a checkpoint to confirm you understood it. |
+| **3. Plan** | It builds the plan for the level: each step with its rationale, the command, the expected output and the closing evidence. |
+| **4. Choose a mode** | It asks whether you prefer automatic mode (the agent runs it) or manual mode (you run it). |
+| **5. Execute** | It runs the lab in your environment; if something fails, it helps you fix it. |
+| **6. Validate** | The academy validates each step with evidence. It is not the agent that decides if it is right. |
 
-## ¿Para quién es?
+The theory step is not optional. You cannot jump straight to the lab: without the theoretical base and a passed checkpoint, no command runs.
 
-TUTOR es para **estudiantes activos de Z2H Academy**.
+## Content: roadmaps and projects
 
-El acceso está controlado por whitelist: si el email de tu cuenta de GitHub está habilitado, puedes autenticarte y empezar. Si no, contacta al administrador.
+Z2H Academy ships two kinds of content, and TUTOR handles both.
 
-## Requisitos
+| Content type | Structure | Example |
+|---|---|---|
+| **Roadmap** | Levels, and sections inside each level | `data-engineering` → `nivel-0` → `1-section` |
+| **Project** | A single track made of phases | `analytics-starter` → `fase-0`, `fase-1`, … |
 
-Antes de instalar Tutor se necesita:
+Both are read as complete units, not as loose pages:
 
-* **Node.js 22 o 24** (recomendado: 24 LTS), instalado mediante nvm.
-* **Una cuenta de GitHub** cuyo email esté incluido en la whitelist de Z2H Academy.
-* **Un agente de terminal con soporte MCP**.
-* **Git** (para clonar repos y trabajar con codespaces).
-* **Docker** (para los labs que levantan servicios en tu máquina; si falta, el agente te guía para instalarlo).
-* **GitHub CLI (`gh`)** (solo para labs en Codespaces — ver https://cli.github.com).
+* A **level** or a **phase** is taught in three stages: theoretical base, lab plan and execution.
+* Each stage closes with evidence before moving on.
+* In projects the level is optional: the project itself is the unit.
 
-Los agentes soportados incluyen:
+Roadmaps cover data engineering, AI, DevOps, Python, PySpark and SQL. Projects take you through a full build from first phase to last.
 
-* **OpenCode**
-* **Codex**
-* **Claude Code**
+## Who it is for
 
-OpenCode es el cliente oficialmente soportado. **Tutor 0.10.0 requiere OpenCode 2**: si todavía usas OpenCode 1, quédate en Tutor 0.8.0.
+TUTOR is for **active Z2H Academy students**.
+
+Access is controlled by a whitelist: if your GitHub account email is enabled, you can authenticate and start. If it is not, contact the administrator.
+
+## Requirements
+
+Before installing Tutor you need:
+
+* **Node.js 22 or 24** (recommended: 24 LTS), installed through nvm.
+* **A GitHub account** whose email is included in the Z2H Academy whitelist.
+* **A terminal agent with MCP support**.
+* **Git** (to clone repos and work with codespaces).
+* **Docker** (for labs that start services on your machine; if it is missing, the agent guides you through installing it).
+* **GitHub CLI (`gh`)** (only for Codespaces labs — see https://cli.github.com).
+
+Supported agents include **OpenCode**, **Codex** and **Claude Code**.
+
+OpenCode is the officially supported client. **Tutor 0.10.x requires OpenCode 2**: if you are still on OpenCode 1, stay on Tutor 0.8.0.
 
 ---
 
 ## Quick Start
 
-<details>
-<summary><strong>1. Instalar nvm + Node.js (Linux)</strong></summary>
+### 1. Install nvm + Node.js (Linux)
 
-Si aún no tienes Node.js, instálalo mediante nvm (Node Version Manager):
+If you do not have Node.js yet, install it through nvm:
 
 ```bash
-# Instalar nvm
+# Install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
-# Cargar nvm en la sesión actual (o reinicia la terminal)
+# Load nvm in the current session (or restart the terminal)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-# Instalar y usar Node.js 24 LTS
+# Install and use Node.js 24 LTS
 nvm install 24
 nvm use 24
 nvm alias default 24
 ```
 
-Verificar la instalación:
+Verify the installation:
 
 ```bash
-node --version   # debe mostrar v24.x.x
-npm --version    # debe mostrar 10.x o 11.x
+node --version   # should print v24.x.x
+npm --version    # should print 10.x or 11.x
 ```
 
-> **Versiones correctas:** Node.js **22 o 24** (24 LTS recomendado). npm viene incluido con Node.js (no se instala por separado). No uses Node.js 20 o inferior — Tutor requiere funciones modernas de JavaScript.
+> **Correct versions:** Node.js **22 or 24** (24 LTS recommended). npm ships with Node.js and is not installed separately. Do not use Node.js 20 or lower — Tutor needs modern JavaScript features.
 
-</details>
+### 2. Install OpenCode
 
-<details>
-<summary><strong>2. Instalar OpenCode</strong></summary>
-
-Instalar el agente OpenCode con el instalador oficial:
+Install the OpenCode agent with the official installer:
 
 ```bash
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-Verificar la instalación (reinicia la terminal primero si es necesario):
+Verify the installation (restart the terminal first if needed):
 
 ```bash
-opencode --version   # debe mostrar 2.x
+opencode --version   # should print 2.x
 ```
 
-> Si el comando no se encuentra, agrega `~/.opencode/bin` a tu `PATH` o reinicia la terminal.
+> If the command is not found, add `~/.opencode/bin` to your `PATH` or restart the terminal.
 
-> **Requisito de versión:** Tutor 0.10.0 requiere OpenCode 2. Si todavía usas OpenCode 1, quédate en Tutor 0.8.0.
+> **Version requirement:** Tutor 0.10.x requires OpenCode 2. If you are still on OpenCode 1, stay on Tutor 0.8.0.
 
-</details>
+### 3. Install Tutor
 
-<details>
-<summary><strong>3. Instalar Tutor</strong></summary>
+Install the Tutor CLI globally from the stable release:
 
-Instala la CLI de Tutor globalmente desde el último release:
-
-```
+```bash
 npm install -g https://github.com/z2h-academy/tutor/releases/latest/download/z2h-academy-tutor.tgz
 ```
 
-No necesitas configurar nada a mano: el siguiente paso deja todo listo.
+You do not need to configure anything by hand: the next step takes care of it.
 
-> Para una versión específica: reemplaza `latest` por el tag (ej. `.../download/v0.10.0/z2h-academy-tutor-0.10.0.tgz`).
-> Para actualizar una instalación existente, consulta el paso 6.
+To pin a specific version, replace `latest` with the tag:
 
-</details>
-
-<details>
-<summary><strong>4. Autenticarse</strong></summary>
-
-La autenticación se realiza una única vez:
-
+```bash
+npm install -g https://github.com/z2h-academy/tutor/releases/download/v0.10.0/z2h-academy-tutor-0.10.0.tgz
 ```
+
+> **Pre-release channel.** To test the 0.10.x pre-release, install the rc build directly. Note that its asset can change before it is promoted to stable:
+>
+> ```bash
+> npm install -g https://github.com/z2h-academy/tutor/releases/download/v0.10.2-rc.2/z2h-academy-tutor-0.10.2-rc.2.tgz
+> ```
+
+### 4. Authenticate
+
+Authentication happens once:
+
+```bash
 tutor login
 ```
 
-Tutor iniciará el login con GitHub y mostrará una URL y un código de verificación:
+Tutor starts the GitHub login and shows a URL and a verification code:
 
 ```
-Abre esta URL en el navegador y autoriza el acceso:
+Open this URL in your browser and authorize access:
 
   https://github.com/login/device
 
-Tu código de verificación: XXXX-XXXX
+Your verification code: XXXX-XXXX
 
-(expira en 15 min)
+(expires in 15 min)
 ```
 
-Abre la URL, ingresa el código y autoriza **Z2H Academy** con tu cuenta de GitHub.
+Open the URL, enter the code and authorize **Z2H Academy** with your GitHub account.
 
-Durante este proceso, Tutor verifica que tu email esté habilitado en la whitelist de la academia.
+During this process Tutor checks that your email is enabled in the academy whitelist.
 
-Una vez autorizado, Tutor deja tu agente conectado y listo para usar: la conexión con la academia, el tema visual TUTOR y **Tutor Memory**, tu memoria entre sesiones.
+Once authorized, Tutor leaves your agent connected and ready to use: the connection to the academy, the TUTOR visual theme and **Tutor Memory**, your memory across sessions.
 
-Las credenciales locales se almacenan en:
+Local credentials are stored at `~/.config/z2h/tutor.env` with `600` permissions, so only you can read the file.
 
-```
-~/.config/z2h/tutor.env
-```
+### 5. Verify the installation
 
-con permisos `600`, de modo que únicamente tú puedas acceder al archivo.
+From OpenCode, ask the agent:
 
-Si necesitas reconfigurar tu agente (por ejemplo, después de reinstalar OpenCode), ejecuta:
-
-```
-tutor setup
+```text
+tell me which roadmaps I have access to
 ```
 
-Reinicia OpenCode para que detecte los cambios.
+If it returns the roadmaps, levels and sections enabled for your account, the installation is complete.
 
-</details>
+You can also check that the connection is active:
 
-<details>
-<summary><strong>5. Verificar la instalación</strong></summary>
-
-Desde OpenCode, pídele al agente:
-
-```
-dime a qué roadmaps tengo acceso
-```
-
-Si te devuelve los roadmaps, niveles y secciones habilitados para tu cuenta, la instalación está completa.
-
-También puedes verificar que la conexión esté activa:
-
-```
+```bash
 opencode mcp list
 ```
 
-Debería aparecer la conexión de Tutor como conectada:
+The Tutor connection should appear as connected:
 
 ```
 ●  ✓ tutor  connected
 ```
 
-</details>
+### 6. Update to the latest version
 
-<details>
-<summary><strong>6. Actualizar a la última versión</strong></summary>
+Updating takes two steps. First install the new version:
 
-La actualización es en dos pasos. Primero, instala la nueva versión:
-
-```
+```bash
 npm install -g https://github.com/z2h-academy/tutor/releases/latest/download/z2h-academy-tutor.tgz
 ```
 
-Después, aplica la configuración en tu agente:
+Then apply the configuration to your agent:
 
-```
+```bash
 tutor setup
 ```
 
-Reinicia OpenCode al terminar.
+Restart OpenCode when you are done.
 
-> Reinstalar el paquete por sí solo no actualiza tu configuración local: `tutor setup` es el paso que la deja al día.
-
-</details>
+> Reinstalling the package alone does not update your local configuration: `tutor setup` is the step that brings it up to date. It is idempotent and does not touch your other MCP servers.
 
 ---
 
 ## Tutor Memory
 
-**Tu progreso no se pierde: se recuerda.**
+**Your progress is not lost: it is remembered.**
 
-Tutor incluye **Tutor Memory**, la memoria de tu aprendizaje. Viene activada desde la instalación: sin cuentas, sin pasos extra.
+Tutor includes **Tutor Memory**, the memory of your learning. It comes enabled from installation: no accounts, no extra steps.
 
-* **Tu agente recuerda.** Dónde quedaste, qué decidiste y los resúmenes de tus sesiones anteriores. Nunca empiezas de cero.
-* **Cada proyecto recuerda lo suyo.** La memoria es de tu proyecto, no de tu persona: cada repo tiene su propio historial.
-* **Viaja contigo.** Tu progreso puede viajar dentro de tu repositorio: llévalo de tu PC a tu Codespace (o al revés) y continúa donde estabas.
-* **Privada por diseño.** Se guarda en tu entorno de trabajo y no se mezcla con la de nadie más.
+* **Your agent remembers.** Where you left off, what you decided and summaries of your previous sessions. You never start from zero.
+* **Each project remembers its own.** Memory belongs to your project, not to you as a person: every repo has its own history.
+* **It travels with you.** Your progress can travel inside your repository: take it from your PC to your Codespace (or the other way around) and continue where you were.
+* **Private by design.** It is stored in your working environment and never mixed with anyone else's. Nothing is sent to the harness.
 
-Pídeselo así:
+Ask for it like this:
 
-| Lo que quieres | Frase de ejemplo |
+| What you want | Example phrase |
 |---|---|
-| Retomar donde quedaste | *"¿dónde quedamos la última sesión?"* |
-| Guardar tu avance | *"recuerda que terminé la sección 2 del nivel 0"* |
-| Guardar una decisión | *"recuerda que decidimos usar Docker para los labs y por qué"* |
-| Recuperar algo del pasado | *"¿qué habíamos decidido sobre el modelo de datos?"* |
-| Cerrar con contexto | *"dame un resumen de la sesión para continuar mañana"* |
-| Llevar tu progreso a otra máquina | *"guarda mi progreso en el repo para continuar desde el Codespace"* |
+| Resume where you left off | *"where did we leave off last session?"* |
+| Save your progress | *"remember that I finished section 2 of level 0"* |
+| Save a decision | *"remember that we decided to use Docker for the labs and why"* |
+| Recall something from the past | *"what had we decided about the data model?"* |
+| Close with context | *"give me a session summary so I can continue tomorrow"* |
+| Move your progress to another machine | *"save my progress in the repo so I can continue from the Codespace"* |
 
-> ¿Prefieres la terminal? La memoria también se gestiona con la CLI: `tutor memory` (`save`, `search`, `status`, `export`, `import`).
+Prefer the terminal? Memory is also managed through the CLI:
 
-## Tu agente ya viene listo
+```bash
+tutor-memory status
+tutor-memory save --project my-project --type decision --title "Use Docker" --content "Chosen for the labs."
+tutor-memory search --query "data model"
+tutor-memory export
+tutor-memory import
+```
 
-Tutor le enseña a tu agente cómo trabajar con la academia:
+> `init`, `status`, `doctor`, `save`, `search`, `repair`, `export`, `import` and `migrate` are available. `tutor-memory --help` prints the full usage. The database lives on your machine at `~/.local/share/z2h/tutor/memory.db` with `600` permissions, and `<private>…</private>` tags are stripped before anything is stored.
 
-* **Descubrir tu contenido** — roadmaps, niveles y secciones disponibles para tu cuenta.
-* **Guiarte en el orden correcto** — sabe qué paso sigue según tu roadmap.
-* **Explicarte cada tema** — resume y aclara el contenido antes de ejecutar, con tablas, diagramas y ejemplos cuando hacen falta.
-* **Ejecutar tus labs** — en local o en un Codespace, en modo manual o automático.
-* **Validar cada paso** — contra los criterios de la academia, no contra la opinión del modelo.
-* **Diagnosticar cuando algo falla** — te ayuda a encontrar la causa en lugar de adivinar.
+## What your agent can do
 
-## Dos formas de usarlo
+Tutor teaches your agent how to work with the academy. It is not a list of commands: it understands where you are and adapts the answer. You can ask in your own words and it discovers the real content before replying.
 
-* **Local** — en tu terminal: instala Tutor, autentícate y abre tu agente. Funciona en tu PC, en un Codespace o en un container.
-* **Web** — en el navegador: entra a [tutor.z2h-academy.com](https://tutor.z2h-academy.com), inicia sesión con GitHub y usa OpenCode con tu propio entorno en la nube.
+**Discover your content.** Ask what is available and it shows the roadmaps and projects with their structure live, with no fixed catalog.
+
+```text
+list the roadmaps
+```
+
+**Understand a project before starting.** It gives you the big picture, what you will learn and how it is organized, without opening any files yourself.
+
+```text
+let's build the analytics-starter project.
+give me a summary of what I will learn.
+```
+
+```text
+give me a strategic summary of analytics-starter phase-0
+```
+
+**Move forward in order.** If you ask for the next step, it picks up where you left off and tells you what comes next in the roadmap or project.
+
+```text
+what comes after phase-0?
+```
+
+**Study a complete unit.** A project phase or a roadmap level is taught in three stages: theoretical base, lab plan and execution. You cannot skip the theory to jump straight into the lab.
+
+```text
+start analytics-starter phase-1
+```
+
+**Run your labs.** In local or in a Codespace, in manual or automatic mode.
+
+```text
+run the analytics-starter lab in Codespaces
+```
+
+**Validate each step.** Against the academy criteria, not against the model's opinion.
+
+```text
+is it right the way I loaded the data?
+```
+
+**Go deeper.** On any topic already covered, you can ask for examples, clarifications or a different explanation.
+
+```text
+explain the fact table grain again with an example
+```
+
+**Diagnose when something fails.** Report the error as it appears and Tutor finds the cause instead of guessing.
+
+```text
+I get this error when loading the data: <paste the error>
+```
+
+> Tutor works only with the course material and your session state. If something is not in the docs, it tells you instead of making it up.
+
+## Execution modes
+
+The mode is chosen once, inside the plan, and is not changed halfway unless you ask for it.
+
+| Mode | What happens |
+|---|---|
+| **Manual** | The agent prepares the commands and you run them. It verifies the result with you. |
+| **Automatic** | The agent runs the steps one by one and verifies each one. Destructive commands still require explicit confirmation. |
+| **Single command** | You insist on one command without the theory. You get the action, a two-line rationale and the expected evidence. The checkpoint stays pending, the unit does not close and it does not count as progress. |
+
+In single-command mode only one lab action is allowed per turn, plus positioning in the workspace and activating an environment the material already declares. Preparation, inspection and verification are not allowed in the same turn.
+
+## Local theory export
+
+From the local MCP you can export the theory of a unit as a document:
+
+```text
+export the theory of this unit
+```
+
+* One unit at a time; there is no "export everything".
+* The renderer is fixed and the output goes through a sanitizer that blocks internal terms.
+* Export state is tracked, so an edited export is never overwritten without asking you.
+
+> The export is **local only**. It is not available in the hosted harness, so do not expect it from the web version.
+
+## Two ways to use it
+
+* **Local** — in your terminal: install Tutor, authenticate and open your agent. It works on your PC, in a Codespace or in a container.
+* **Web** — in the browser: go to [tutor.z2h-academy.com](https://tutor.z2h-academy.com), sign in with GitHub and use OpenCode with your own cloud environment.
+
+> `tutor runtime` starts the runtime daemon behind the web mode: it boots OpenCode locally and connects it to the academy. You do not normally run it by hand.
 
 ---
 
 ## Troubleshooting
 
-| Problema | Solución |
+| Problem | Solution |
 |---|---|
-| `email not in pre_enrollment whitelist` | Tu email no está habilitado. Contacta al administrador de Z2H Academy. |
-| `grant user:email scope` | Verifica que hayas autorizado el scope `user:email` durante el login con GitHub. |
-| `AccessDenied` al leer contenido | Tu acceso al contenido expiró o fue revocado. Ejecuta `tutor login` nuevamente. |
-| Después de actualizar, no se ven los cambios | Ejecuta `tutor setup` y reinicia OpenCode. |
-| El login dice que el comando es interactivo | Ejecuta `tutor login` tú mismo en tu terminal, con el navegador a mano. No lo lances desde el agente. |
-| No aparece un roadmap que debería estar habilitado | Ejecuta `tutor login` nuevamente para actualizar tu acceso. |
-| La conexión de Tutor no aparece en OpenCode | Verifica que Tutor esté instalado, ejecuta `tutor setup` y reinicia OpenCode. |
-| `no email available` | GitHub no está proporcionando un email para tu cuenta. Revisa la configuración de emails de tu cuenta de GitHub. |
-| `gh: command not found` | Instala GitHub CLI desde https://cli.github.com (necesario para labs en Codespaces). |
-| `You are not logged into any GitHub hosts` | Ejecuta `gh auth login` y completa el flujo de autenticación. |
-| Usas OpenCode 1 | Tutor 0.10.0 requiere OpenCode 2. Actualiza OpenCode o quédate en Tutor 0.8.0. |
+| `email not in pre_enrollment whitelist` | Your email is not enabled. Contact the Z2H Academy administrator. |
+| `grant user:email scope` | Make sure you authorized the `user:email` scope during the GitHub login. |
+| `AccessDenied` when reading content | Your content access expired or was revoked. Run `tutor login` again. |
+| After updating, changes are not visible | Run `tutor setup` and restart OpenCode. |
+| The login says the command is interactive | Run `tutor login` yourself in your terminal, with the browser at hand. Do not launch it from the agent. |
+| A roadmap that should be enabled does not appear | Run `tutor login` again to refresh your access. |
+| The Tutor connection does not appear in OpenCode | Check that Tutor is installed, run `tutor setup` and restart OpenCode. |
+| `no email available` | GitHub is not providing an email for your account. Check your GitHub email settings. |
+| `gh: command not found` | Install GitHub CLI from https://cli.github.com (needed for Codespaces labs). |
+| `You are not logged into any GitHub hosts` | Run `gh auth login` and complete the authentication flow. |
+| You are on OpenCode 1 | Tutor 0.10.x requires OpenCode 2. Update OpenCode or stay on Tutor 0.8.0. |
 
 ---
 
-## Comunidad
+## Community
 
-**Construir es mejor acompañado.**
+**Building is better accompanied.**
 
-El Discord de Z2H Academy reúne a los estudiantes de todos los roadmaps:
+The Z2H Academy Discord brings together students from every roadmap:
 
-* **Resuelve bloqueos.** Cuando un lab no avanza o algo no queda claro, pregunta en el canal correspondiente.
-* **Comparte tu avance.** Muestra lo que construiste, pide feedback y mira lo que están construyendo los demás.
-* **Entérate primero.** Roadmaps nuevos, labs y actualizaciones de Tutor se anuncian en Discord.
+* **Unblock yourself.** When a lab is stuck or something is unclear, ask in the right channel.
+* **Share your progress.** Show what you built, ask for feedback and see what others are building.
+* **Hear it first.** New roadmaps, labs and Tutor updates are announced on Discord.
 
 <p align="center">
-  <a href="https://discord.gg/ycy9zkUreX"><strong>→ Unirse al Discord de Z2H Academy</strong></a>
+  <a href="https://discord.gg/ycy9zkUreX"><strong>→ Join the Z2H Academy Discord</strong></a>
 </p>
 
 ---
 
-## Soporte
+## Support
 
-Para problemas relacionados con acceso, autenticación, configuración de Tutor, conexión con tu agente, Roadmaps o labs, contacta al administrador de Z2H Academy.
+For issues related to access, authentication, Tutor configuration, agent connection, Roadmaps or labs, contact the Z2H Academy administrator.
 
 ---
 
-## Licencia
+## License
 
-Tutor está destinado exclusivamente al uso por parte de estudiantes activos de Z2H Academy.
+Tutor is intended exclusively for use by active Z2H Academy students.
 
-Consulta el archivo `LICENSE` incluido en el proyecto para conocer los términos completos de uso.
+See the `LICENSE` file included in the project for the full terms of use.
 
 ---
 
 <p align="center">
-  <sub>El agente ejecuta · Tutor conecta y orquesta · el harness dirige y valida</sub>
+  <sub>The agent executes · Tutor connects and orchestrates · the harness directs and validates</sub>
 </p>
 
 <p align="center">
-  <a href="https://discord.gg/ycy9zkUreX"><img src="https://cdn.simpleicons.org/discord/5865F2" alt="Discord" width="20" height="20"> Únete a la comunidad en Discord</a>
+  <a href="https://discord.gg/ycy9zkUreX"><img src="https://cdn.simpleicons.org/discord/5865F2" alt="Discord" width="20" height="20"> Join the community on Discord</a>
 </p>
