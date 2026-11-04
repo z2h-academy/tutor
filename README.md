@@ -149,8 +149,10 @@ npm --version    # should print 10.x or 11.x
 Install the OpenCode agent with the official installer:
 
 ```bash
-curl -fsSL https://opencode.ai/install | bash
+curl -fsSL https://opencode.ai/v2/install | bash
 ```
+
+> **Use `/v2/install`, not `/install`.** `https://opencode.ai/install` still serves the OpenCode 1 installer. The `/v2/install` script installs the latest OpenCode 2 release.
 
 Verify the installation (restart the terminal first if needed):
 
