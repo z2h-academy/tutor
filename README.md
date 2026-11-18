@@ -94,16 +94,16 @@ Roadmaps cover data engineering, AI, DevOps, Python, PySpark and SQL. Projects t
 
 ## Who it is for
 
-TUTOR is for **active Z2H Academy students**.
+TUTOR is for **Z2H Academy students** and for anyone who wants to start with a free roadmap.
 
-Access is controlled by a whitelist: if your GitHub account email is enabled, you can authenticate and start. If it is not, contact the administrator.
+Access is resolved per roadmap: free roadmaps open with just a GitHub login; the rest are enabled from the portal. If your account has no grants, login still works and your scope is limited to the free roadmaps.
 
 ## Requirements
 
 Before installing Tutor you need:
 
 * **Node.js 22 or 24** (recommended: 24 LTS), installed through nvm.
-* **A GitHub account** whose email is included in the Z2H Academy whitelist.
+* **A GitHub account**. Free roadmaps do not require a whitelist; the rest are enabled from the Z2H Academy portal.
 * **A terminal agent with MCP support**.
 * **Git** (to clone repos and work with codespaces).
 * **Docker** (for labs that start services on your machine; if it is missing, the agent guides you through installing it).
@@ -208,7 +208,7 @@ Your verification code: XXXX-XXXX
 
 Open the URL, enter the code and authorize **Z2H Academy** with your GitHub account.
 
-During this process Tutor checks that your email is enabled in the academy whitelist.
+During this process Tutor resolves your scope: it adds the free roadmaps published by the portal and the grants your account has.
 
 Once authorized, Tutor leaves your agent connected and ready to use: the connection to the academy, the TUTOR visual theme and **Tutor Memory**, your memory across sessions.
 
@@ -388,7 +388,7 @@ export the theory of this unit
 
 | Problem | Solution |
 |---|---|
-| `email not in pre_enrollment whitelist` | Your email is not enabled. Contact the Z2H Academy administrator. |
+| `email not in pre_enrollment whitelist` | Your account has no grants and no free roadmaps. Check the `/api/access` manifest or contact the administrator. |
 | `grant user:email scope` | Make sure you authorized the `user:email` scope during the GitHub login. |
 | `AccessDenied` when reading content | Your content access expired or was revoked. Run `tutor login` again. |
 | After updating, changes are not visible | Run `tutor setup` and restart OpenCode. |

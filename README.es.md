@@ -94,16 +94,16 @@ Los roadmaps cubren data engineering, AI, DevOps, Python, PySpark y SQL. Los pro
 
 ## ¿Para quién es?
 
-TUTOR es para **estudiantes activos de Z2H Academy**.
+TUTOR es para **estudiantes de Z2H Academy** y para cualquier persona que quiera empezar con un roadmap gratuito.
 
-El acceso está controlado por whitelist: si el email de tu cuenta de GitHub está habilitado, puedes autenticarte y empezar. Si no, contacta al administrador.
+El acceso se resuelve por roadmap: los gratuitos se abren con solo iniciar sesión con GitHub; el resto se habilita desde el portal. Si tu cuenta no tiene grants, el login funciona igual y el alcance queda limitado a los roadmaps gratuitos.
 
 ## Requisitos
 
 Antes de instalar Tutor se necesita:
 
 * **Node.js 22 o 24** (recomendado: 24 LTS), instalado mediante nvm.
-* **Una cuenta de GitHub** cuyo email esté incluido en la whitelist de Z2H Academy.
+* **Una cuenta de GitHub**. Los roadmaps gratuitos no requieren whitelist; el resto se habilita desde el portal de Z2H Academy.
 * **Un agente de terminal con soporte MCP**.
 * **Git** (para clonar repos y trabajar con codespaces).
 * **Docker** (para los labs que levantan servicios en tu máquina; si falta, el agente te guía para instalarlo).
@@ -208,7 +208,7 @@ Tu código de verificación: XXXX-XXXX
 
 Abre la URL, ingresa el código y autoriza **Z2H Academy** con tu cuenta de GitHub.
 
-Durante este proceso, Tutor verifica que tu email esté habilitado en la whitelist de la academia.
+Durante este proceso, Tutor resuelve tu alcance: suma los roadmaps gratuitos publicados por el portal y los grants que tenga tu cuenta.
 
 Una vez autorizado, Tutor deja tu agente conectado y listo para usar: la conexión con la academia, el tema visual TUTOR y **Tutor Memory**, tu memoria entre sesiones.
 
@@ -388,7 +388,7 @@ exporta la teoría de esta unidad
 
 | Problema | Solución |
 |---|---|
-| `email not in pre_enrollment whitelist` | Tu email no está habilitado. Contacta al administrador de Z2H Academy. |
+| `email not in pre_enrollment whitelist` | Tu cuenta no tiene grants ni roadmaps gratuitos. Verifica el manifiesto `/api/access` o contacta al administrador. |
 | `grant user:email scope` | Verifica que hayas autorizado el scope `user:email` durante el login con GitHub. |
 | `AccessDenied` al leer contenido | Tu acceso al contenido expiró o fue revocado. Ejecuta `tutor login` nuevamente. |
 | Después de actualizar, no se ven los cambios | Ejecuta `tutor setup` y reinicia OpenCode. |
