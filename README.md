@@ -9,8 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/stable-0.10.3-ffd300?style=flat-square" alt="stable 0.10.3">
-  <img src="https://img.shields.io/badge/pre--release-0.11.0--rc.2-2f81f7?style=flat-square" alt="pre-release 0.11.0-rc.2">
+  <img src="https://img.shields.io/badge/stable-0.11.0-ffd300?style=flat-square" alt="stable 0.11.0">
   <img src="https://img.shields.io/badge/license-Proprietary-0b0b10?style=flat-square" alt="proprietary license">
   <img src="https://img.shields.io/badge/node-%3E%3D22-2fe08a?style=flat-square" alt="node 22 or higher">
   <a href="https://discord.gg/ycy9zkUreX"><img src="https://img.shields.io/badge/discord-join-5865F2?style=flat-square&amp;logo=discord&amp;logoColor=white" alt="join the Z2H Academy Discord"></a>
@@ -111,7 +110,7 @@ Before installing Tutor you need:
 
 Supported agents: **OpenCode** and **Claude Code**. Codex is on the roadmap.
 
-OpenCode is the default client. **Tutor 0.10.x requires OpenCode 2**: if you are still on OpenCode 1, stay on Tutor 0.8.0. Claude Code support starts at Tutor **0.11.0**.
+OpenCode is the default client. **Tutor 0.11.x requires OpenCode 2**: if you are still on OpenCode 1, stay on Tutor 0.8.0. Claude Code support starts at Tutor **0.11.0**.
 
 ---
 
@@ -166,7 +165,7 @@ opencode --version   # should print 2.x
 
 > If the command is not found, add `~/.opencode/bin` to your `PATH` or restart the terminal.
 
-> **Version requirement:** Tutor 0.10.x requires OpenCode 2. If you are still on OpenCode 1, stay on Tutor 0.8.0.
+> **Version requirement:** Tutor 0.11.x requires OpenCode 2. If you are still on OpenCode 1, stay on Tutor 0.8.0.
 
 #### Claude Code
 
@@ -211,7 +210,7 @@ claude-deepseek
 Three things worth knowing:
 
 * It is **additive**: it does not replace `claude` and does not touch your Anthropic login. Plain `claude` keeps working.
-* It keeps its own configuration in `~/.config/claude-deepseek`, separate from `~/.claude`, so the DeepSeek token never mixes with your Anthropic login. That also means a Tutor installed only in `~/.claude` does **not** appear inside `claude-deepseek`: `/mcp` shows no servers. Tutor **0.11.0-rc.2** and newer detect both directories and configure them, so `tutor setup` is enough.
+* It keeps its own configuration in `~/.config/claude-deepseek`, separate from `~/.claude`, so the DeepSeek token never mixes with your Anthropic login. That also means a Tutor installed only in `~/.claude` does **not** appear inside `claude-deepseek`: `/mcp` shows no servers. Tutor **0.11.0** and newer detect both directories and configure them, so `tutor setup` is enough.
 * Install Claude Code first: the helper stops if `claude` is missing.
 
 If you use an older Tutor, or a custom `DEEPSEEK_CONFIG_DIR`, point it at the directory explicitly:
@@ -236,13 +235,13 @@ To pin a specific version, replace `latest` with the tag:
 npm install -g https://github.com/z2h-academy/tutor/releases/download/v0.10.3/z2h-academy-tutor-0.10.3.tgz
 ```
 
-> **Pre-release channel.** To test the next release before it is promoted to stable, install the rc build directly:
+> **Pre-release channel.** Upcoming builds are published as pre-releases: they carry only the versioned asset and never move `releases/latest`. To test one, install it by exact tag from its release page:
 >
 > ```bash
-> npm install -g https://github.com/z2h-academy/tutor/releases/download/v0.11.0-rc.2/z2h-academy-tutor-0.11.0-rc.2.tgz
+> npm install -g https://github.com/z2h-academy/tutor/releases/download/<tag>/z2h-academy-tutor-<tag>.tgz
 > ```
 >
-> `releases/latest` keeps serving the stable 0.10.3 until the pre-release is validated.
+> `releases/latest` keeps serving the stable release.
 
 > **Native memory build.** Tutor Memory uses `better-sqlite3`, which compiles a binary during install. If npm warns that the install script is not approved, or `tutor-memory` fails to open the database, install again with:
 >
@@ -508,7 +507,7 @@ export the theory of this unit
 | `no email available` | GitHub is not providing an email for your account. Check your GitHub email settings. |
 | `gh: command not found` | Install GitHub CLI from https://cli.github.com (needed for Codespaces labs). |
 | `You are not logged into any GitHub hosts` | Run `gh auth login` and complete the authentication flow. |
-| You are on OpenCode 1 | Tutor 0.10.x requires OpenCode 2. Update OpenCode or stay on Tutor 0.8.0. |
+| You are on OpenCode 1 | Tutor 0.11.x requires OpenCode 2. Update OpenCode or stay on Tutor 0.8.0. |
 
 ---
 
