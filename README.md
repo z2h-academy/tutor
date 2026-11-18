@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/stable-0.10.0-ffd300?style=flat-square" alt="stable 0.10.0">
-  <img src="https://img.shields.io/badge/pre--release-0.10.2--rc.2-2f81f7?style=flat-square" alt="pre-release 0.10.2-rc.2">
+  <img src="https://img.shields.io/badge/stable-0.10.3-ffd300?style=flat-square" alt="stable 0.10.3">
+  <img src="https://img.shields.io/badge/pre--release-0.11.0--rc.1-2f81f7?style=flat-square" alt="pre-release 0.11.0-rc.1">
   <img src="https://img.shields.io/badge/license-Proprietary-0b0b10?style=flat-square" alt="proprietary license">
   <img src="https://img.shields.io/badge/node-%3E%3D22-2fe08a?style=flat-square" alt="node 22 or higher">
   <a href="https://discord.gg/ycy9zkUreX"><img src="https://img.shields.io/badge/discord-join-5865F2?style=flat-square&amp;logo=discord&amp;logoColor=white" alt="join the Z2H Academy Discord"></a>
@@ -27,7 +27,7 @@
   <a href="#troubleshooting">troubleshooting</a>
 </p>
 
-**TUTOR** connects your terminal agent —**OpenCode, Codex or Claude Code**— to the Roadmaps, Developer Docs and Labs of Z2H Academy. You build in your own environment. The harness directs and validates.
+**TUTOR** connects your terminal agent —**OpenCode or Claude Code**— to the Roadmaps, Developer Docs and Labs of Z2H Academy. You build in your own environment. The harness directs and validates.
 
 ---
 
@@ -42,7 +42,7 @@ An AI agent knows how to run commands and solve problems, but it does not know t
 > The harness directs and validates.
 > The Developer Docs hold the knowledge.
 
-The agent can change —OpenCode, Codex or Claude Code— without the learning logic depending on a specific model.
+The agent can change —OpenCode or Claude Code— without the learning logic depending on a specific model.
 
 Tutor is not a chatbot either, and it is not the AI agent itself. **The agent is what talks to you, reasons and acts on your machine.**
 
@@ -109,9 +109,9 @@ Before installing Tutor you need:
 * **Docker** (for labs that start services on your machine; if it is missing, the agent guides you through installing it).
 * **GitHub CLI (`gh`)** (only for Codespaces labs — see https://cli.github.com).
 
-Supported agents include **OpenCode**, **Codex** and **Claude Code**.
+Supported agents: **OpenCode** and **Claude Code**. Codex is on the roadmap.
 
-OpenCode is the officially supported client. **Tutor 0.10.x requires OpenCode 2**: if you are still on OpenCode 1, stay on Tutor 0.8.0.
+OpenCode is the default client. **Tutor 0.10.x requires OpenCode 2**: if you are still on OpenCode 1, stay on Tutor 0.8.0. Claude Code support starts at Tutor **0.11.0**.
 
 ---
 
@@ -144,7 +144,11 @@ npm --version    # should print 10.x or 11.x
 
 > **Correct versions:** Node.js **22 or 24** (24 LTS recommended). npm ships with Node.js and is not installed separately. Do not use Node.js 20 or lower — Tutor needs modern JavaScript features.
 
-### 2. Install OpenCode
+### 2. Install your agent
+
+Tutor works with **OpenCode** or **Claude Code**. Install one of them: `tutor setup` detects which one you have, and asks where to install when both are present.
+
+#### OpenCode (default)
 
 Install the OpenCode agent with the official installer:
 
@@ -164,6 +168,52 @@ opencode --version   # should print 2.x
 
 > **Version requirement:** Tutor 0.10.x requires OpenCode 2. If you are still on OpenCode 1, stay on Tutor 0.8.0.
 
+#### Claude Code
+
+Install Claude Code globally:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Verify:
+
+```bash
+claude --version
+```
+
+> **Version requirement:** Claude Code support starts at Tutor **0.11.0**. Claude Code drops the instructions of a remote MCP server, so Tutor installs session hooks instead; older Tutor versions only know how to configure OpenCode.
+
+#### Claude Code on DeepSeek
+
+To run Claude Code against DeepSeek's Anthropic-compatible endpoint, install the helper from its own repository:
+
+https://github.com/z2h-academy/claude-deepseek
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/z2h-academy/claude-deepseek/main/install.sh | bash
+```
+
+Store your API key once and verify it:
+
+```bash
+deepseek-key      # paste the key; it is stored with 600 permissions
+deepseek-check    # must answer OK
+```
+
+From then on, start Claude Code with `claude-deepseek` instead of `claude`:
+
+```bash
+cd your-project
+claude-deepseek
+```
+
+Three things worth knowing:
+
+* It is **additive**: it does not replace `claude` and does not touch your Anthropic login. Plain `claude` keeps working.
+* Both commands share `~/.claude`, so the Tutor MCP servers and hooks configured by `tutor setup` apply to either one.
+* Install Claude Code first: the helper stops if `claude` is missing.
+
 ### 3. Install Tutor
 
 Install the Tutor CLI globally from the stable release:
@@ -177,14 +227,24 @@ You do not need to configure anything by hand: the next step takes care of it.
 To pin a specific version, replace `latest` with the tag:
 
 ```bash
-npm install -g https://github.com/z2h-academy/tutor/releases/download/v0.10.0/z2h-academy-tutor-0.10.0.tgz
+npm install -g https://github.com/z2h-academy/tutor/releases/download/v0.10.3/z2h-academy-tutor-0.10.3.tgz
 ```
 
-> **Pre-release channel.** To test the 0.10.x pre-release, install the rc build directly. Note that its asset can change before it is promoted to stable:
+> **Pre-release channel.** To test the next release before it is promoted to stable, install the rc build directly:
 >
 > ```bash
-> npm install -g https://github.com/z2h-academy/tutor/releases/download/v0.10.2-rc.2/z2h-academy-tutor-0.10.2-rc.2.tgz
+> npm install -g https://github.com/z2h-academy/tutor/releases/download/v0.11.0-rc.1/z2h-academy-tutor-0.11.0-rc.1.tgz
 > ```
+>
+> `releases/latest` keeps serving the stable 0.10.3 until the pre-release is validated.
+
+> **Native memory build.** Tutor Memory uses `better-sqlite3`, which compiles a binary during install. If npm warns that the install script is not approved, or `tutor-memory` fails to open the database, install again with:
+>
+> ```bash
+> npm install -g --allow-scripts=better-sqlite3 <tarball-url>
+> ```
+>
+> The login and the remote MCP do not depend on that binary: only local memory does.
 
 ### 4. Authenticate
 
@@ -212,11 +272,23 @@ During this process Tutor resolves your scope: it adds the free roadmaps publish
 
 Once authorized, Tutor leaves your agent connected and ready to use: the connection to the academy, the TUTOR visual theme and **Tutor Memory**, your memory across sessions.
 
+If you have both agents installed, `tutor setup` asks where to install: `1` OpenCode, `2` Claude Code, `3` both.
+
+You can also choose without the menu:
+
+| Command | Result |
+|---|---|
+| `tutor setup --agent opencode` | OpenCode only |
+| `tutor setup --agent claude` | Claude Code only |
+| `tutor setup --agent all` | Both |
+
+`tutor setup` is idempotent: running it again does not duplicate servers or hooks, and it preserves the rest of your agent configuration.
+
 Local credentials are stored at `~/.config/z2h/tutor.env` with `600` permissions, so only you can read the file.
 
 ### 5. Verify the installation
 
-From OpenCode, ask the agent:
+From your agent, ask:
 
 ```text
 tell me which roadmaps I have access to
@@ -224,7 +296,9 @@ tell me which roadmaps I have access to
 
 If it returns the roadmaps, levels and sections enabled for your account, the installation is complete.
 
-You can also check that the connection is active:
+You can also check that the connection is active.
+
+OpenCode:
 
 ```bash
 opencode mcp list
@@ -234,6 +308,19 @@ The Tutor connection should appear as connected:
 
 ```
 ●  ✓ tutor  connected
+```
+
+Claude Code:
+
+```bash
+claude mcp list
+```
+
+Both servers should appear:
+
+```
+tutor: https://harness.z2h-academy.com/mcp (HTTP) - ✔ Connected
+tutor-memory: .../dist/memory/mcp/index.js - ✔ Connected
 ```
 
 ### 6. Update to the latest version
@@ -250,7 +337,7 @@ Then apply the configuration to your agent:
 tutor setup
 ```
 
-Restart OpenCode when you are done.
+Restart your agent when you are done.
 
 > Reinstalling the package alone does not update your local configuration: `tutor setup` is the step that brings it up to date. It is idempotent and does not touch your other MCP servers.
 
@@ -391,10 +478,12 @@ export the theory of this unit
 | `email not in pre_enrollment whitelist` | Your account has no grants and no free roadmaps. Check the `/api/access` manifest or contact the administrator. |
 | `grant user:email scope` | Make sure you authorized the `user:email` scope during the GitHub login. |
 | `AccessDenied` when reading content | Your content access expired or was revoked. Run `tutor login` again. |
-| After updating, changes are not visible | Run `tutor setup` and restart OpenCode. |
+| After updating, changes are not visible | Run `tutor setup` and restart your agent. |
 | The login says the command is interactive | Run `tutor login` yourself in your terminal, with the browser at hand. Do not launch it from the agent. |
 | A roadmap that should be enabled does not appear | Run `tutor login` again to refresh your access. |
 | The Tutor connection does not appear in OpenCode | Check that Tutor is installed, run `tutor setup` and restart OpenCode. |
+| The Tutor connection does not appear in Claude Code | Run `tutor setup --agent claude`, then check `claude mcp list`. Hooks are re-read on every session, so restart the session if you just installed them. |
+| `tutor setup` shows no agent | Install OpenCode or Claude Code first; the command detects installed agents and stops when there is none. |
 | `no email available` | GitHub is not providing an email for your account. Check your GitHub email settings. |
 | `gh: command not found` | Install GitHub CLI from https://cli.github.com (needed for Codespaces labs). |
 | `You are not logged into any GitHub hosts` | Run `gh auth login` and complete the authentication flow. |
