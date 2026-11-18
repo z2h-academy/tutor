@@ -341,6 +341,20 @@ Reinicia tu agente al terminar.
 
 > Reinstalar el paquete por sí solo no actualiza tu configuración local: `tutor setup` es el paso que la deja al día. Es idempotente y no toca tus otros servidores MCP.
 
+**Si usas Claude Code**, parte de tu configuración es un archivo que genera `tutor setup`:
+
+```
+~/.config/z2h/claude-context.md
+```
+
+Ese archivo contiene las reglas que el agente sigue en cada sesión: teoría antes de los comandos, el checkpoint, el plan y cómo usar Tutor Memory. Reinstalar Tutor **no** lo regenera, así que después de una actualización la sesión sigue usando las reglas anteriores hasta que ejecutes:
+
+```bash
+tutor setup
+```
+
+Los servidores MCP no se ven afectados: apuntan al paquete instalado, y esa ruta no cambia entre versiones. Lo que queda desactualizado es la guía que el agente lee al inicio de cada sesión.
+
 ---
 
 ## Tutor Memory
