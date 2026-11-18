@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/stable-0.10.3-ffd300?style=flat-square" alt="stable 0.10.3">
-  <img src="https://img.shields.io/badge/pre--release-0.11.0--rc.1-2f81f7?style=flat-square" alt="pre-release 0.11.0-rc.1">
+  <img src="https://img.shields.io/badge/pre--release-0.11.0--rc.2-2f81f7?style=flat-square" alt="pre-release 0.11.0-rc.2">
   <img src="https://img.shields.io/badge/license-Proprietary-0b0b10?style=flat-square" alt="proprietary license">
   <img src="https://img.shields.io/badge/node-%3E%3D22-2fe08a?style=flat-square" alt="node 22 or higher">
   <a href="https://discord.gg/ycy9zkUreX"><img src="https://img.shields.io/badge/discord-join-5865F2?style=flat-square&amp;logo=discord&amp;logoColor=white" alt="join the Z2H Academy Discord"></a>
@@ -211,8 +211,14 @@ claude-deepseek
 Three things worth knowing:
 
 * It is **additive**: it does not replace `claude` and does not touch your Anthropic login. Plain `claude` keeps working.
-* Both commands share `~/.claude`, so the Tutor MCP servers and hooks configured by `tutor setup` apply to either one.
+* It keeps its own configuration in `~/.config/claude-deepseek`, separate from `~/.claude`, so the DeepSeek token never mixes with your Anthropic login. That also means a Tutor installed only in `~/.claude` does **not** appear inside `claude-deepseek`: `/mcp` shows no servers. Tutor **0.11.0-rc.2** and newer detect both directories and configure them, so `tutor setup` is enough.
 * Install Claude Code first: the helper stops if `claude` is missing.
+
+If you use an older Tutor, or a custom `DEEPSEEK_CONFIG_DIR`, point it at the directory explicitly:
+
+```bash
+tutor setup --agent claude --claude-config-dir ~/.config/claude-deepseek
+```
 
 ### 3. Install Tutor
 
@@ -233,7 +239,7 @@ npm install -g https://github.com/z2h-academy/tutor/releases/download/v0.10.3/z2
 > **Pre-release channel.** To test the next release before it is promoted to stable, install the rc build directly:
 >
 > ```bash
-> npm install -g https://github.com/z2h-academy/tutor/releases/download/v0.11.0-rc.1/z2h-academy-tutor-0.11.0-rc.1.tgz
+> npm install -g https://github.com/z2h-academy/tutor/releases/download/v0.11.0-rc.2/z2h-academy-tutor-0.11.0-rc.2.tgz
 > ```
 >
 > `releases/latest` keeps serving the stable 0.10.3 until the pre-release is validated.
@@ -281,6 +287,7 @@ You can also choose without the menu:
 | `tutor setup --agent opencode` | OpenCode only |
 | `tutor setup --agent claude` | Claude Code only |
 | `tutor setup --agent all` | Both |
+| `tutor setup --claude-config-dir <path>` | A single Claude Code config directory |
 
 `tutor setup` is idempotent: running it again does not duplicate servers or hooks, and it preserves the rest of your agent configuration.
 
